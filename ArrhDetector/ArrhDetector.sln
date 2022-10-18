@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32519.379
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrhDetector", "ArrhDetector.csproj", "{0D8064EF-9CDF-4D64-9C2F-86DCA894E755}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D8064EF-9CDF-4D64-9C2F-86DCA894E755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D8064EF-9CDF-4D64-9C2F-86DCA894E755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D8064EF-9CDF-4D64-9C2F-86DCA894E755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D8064EF-9CDF-4D64-9C2F-86DCA894E755}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD47BF9F-C43D-41CE-B412-FB8696EC2151}
+	EndGlobalSection
+EndGlobal
