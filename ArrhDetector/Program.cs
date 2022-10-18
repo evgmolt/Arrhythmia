@@ -32,7 +32,7 @@ for (int j = 100; j < 235; j++)
     }
 
     Console.WriteLine();
-    Console.WriteLine("Интервалов обнаружено : " + WD.FiltredPoints.Count.ToString());
+    Console.WriteLine("Интервалов обнаружено : " + (WD.FiltredPoints.Count + WD.Arrythmia).ToString());
     Console.WriteLine("Эпизодов аритмии : " + WD.Arrythmia.ToString());
     for (int i = 0; i < WD.ArrytmiaIndexes.Count; i++)
     {
@@ -57,15 +57,29 @@ for (int j = 100; j < 235; j++)
     }
     Console.WriteLine();
     Console.WriteLine();
-    Console.Write("Введите номер файла или <Enter> для анализа следующего : ");
+    Console.Write("Введите номер файла, <Enter> для анализа следующего, <Q> для выхода : ");
     string s = Console.ReadLine();
+    if (s.ToUpper() == "Q")
+    {
+        return;
+    }
     if (s == "")
     {
         FileNum++;
     }
     else
     {
-        FileNum = int.Parse(s);
+        int val;
+        if (int.TryParse(s, out val) && val > 99 && val < 234)
+        {
+            FileNum = val;
+        }
+        else
+        {
+            FileNum++;
+            Console.WriteLine("Ошибка ввода. Номер следующего файла " + FileNum.ToString());
+            Console.ReadLine();
+        }
     }
 }
 

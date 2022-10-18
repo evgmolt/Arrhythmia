@@ -153,14 +153,12 @@ namespace ArrhDetector
             {
                 return true;
             }
-            if (NewInterval > PrevInt + PrevInt / 2)
+            if (NewInterval > PrevInt + PrevInt / 2 || NewInterval < PrevInt - PrevInt / 2)
             {
-                ArrytmiaIndexes.Add(index);
-                Arrythmia++;
-                return false;
-            }
-            if (NewInterval < PrevInt - PrevInt / 2)
-            {
+                if (NNPointIndex > 0)
+                {
+                    ArrytmiaIndexes.Add(NNPointArr[NNPointIndex - 1].X);
+                }
                 Arrythmia++;
                 return false;
             }
