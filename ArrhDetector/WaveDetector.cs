@@ -28,6 +28,7 @@ namespace ArrhDetector
         public EventHandler<WaveDetectorEventArgs> OnWaveDetected;
 
         public int Arrythmia;
+        public List<int> ArrytmiaIndexes = new List<int>();
 
         public WaveDetector(int samplingFrequency)
         {
@@ -56,6 +57,7 @@ namespace ArrhDetector
             FiltredPoints.Clear();
             DetectLevel = MinDetectLevel;
             Arrythmia = 0;
+            ArrytmiaIndexes.Clear();
         }
 
         public int GetCurrentPulse()
@@ -112,7 +114,7 @@ namespace ArrhDetector
                     {
                         tmpNN = NNPointArr[NNPointIndex].X - NNPointArr[NNPointIndex - 1].X;
                     }
-                    if (Filter25percent(tmpNN))
+                    if (Filter25percent(tmpNN, Ind))
                     {
                         NNArray[NNIndex] = tmpNN;
                         _currentInterval = tmpNN;
@@ -132,7 +134,7 @@ namespace ArrhDetector
             return DetectLevel;
         }
 
-        private bool Filter25percent(int NewInterval)
+        private bool Filter25percent(int NewInterval, int index)
         {
             const int LoLimit = 50;  //ms - 240 уд / мин 
             const int HiLimit = 400; //ms - 30  уд / мин
@@ -153,6 +155,7 @@ namespace ArrhDetector
             }
             if (NewInterval > PrevInt + PrevInt / 2)
             {
+                ArrytmiaIndexes.Add(index);
                 Arrythmia++;
                 return false;
             }
